@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TE AMO REBECA MAYTA ❤️</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #000000, #1a001a);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}.heart { position: relative; width: 200px; height: 180px; background: red; transform: rotate(-45deg); animation: latido 1s infinite; }
+
+.heart::before, .heart::after { content: ""; position: absolute; width: 200px; height: 180px; background: red; border-radius: 50%; }
+
+.heart::before { top: -100px; left: 0; }
+
+.heart::after { left: 100px; top: 0; }
+
+@keyframes latido { 0%, 100% { transform: scale(1) rotate(-45deg); } 50% { transform: scale(1.1) rotate(-45deg); } }
+
+.texto { position: absolute; color: white; font-size: 18px; text-align: center; transform: rotate(45deg); width: 200px; top: 60px; left: 0; }
+
+.spark { position: absolute; width: 5px; height: 5px; background: gold; border-radius: 50%; animation: chispa 2s linear infinite; }
+
+@keyframes chispa { 0% { transform: translate(0,0) scale(1); opacity: 1; } 100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; } } </style>
+
+</head>
+<body><div class="heart">
+  <div class="texto">TE AMO<br>REBECA MAYTA ❤️</div>
+</div><script>
+function crearChispa() {
+  const spark = document.createElement('div');
+  spark.className = 'spark';
+
+  const x = (Math.random() - 0.5) * 300 + 'px';
+  const y = (Math.random() - 0.5) * 300 + 'px';
+
+  spark.style.setProperty('--x', x);
+  spark.style.setProperty('--y', y);
+
+  spark.style.left = '50%';
+  spark.style.top = '50%';
+
+  document.body.appendChild(spark);
+
+  setTimeout(() => {
+    spark.remove();
+  }, 2000);
+}
+
+setInterval(crearChispa, 100);
+</script></body>
+</html>
